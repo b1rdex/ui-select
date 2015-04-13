@@ -177,6 +177,26 @@
   </ui-select>
   <p>Selected: {{multipleDemo.selectedPeopleWithGroupBy}}</p>
 
+  <hr>
+  <h3>Array of strings (with selectAll and resetAll)</h3>
+  <ui-select multiple ng-init="multipleDemo.colors2 = multipleDemo.colors.slice(0)" ng-model="multipleDemo.colors2" theme="bootstrap" ng-disabled="disabled" close-on-select="false" style="width: 300px;" title="Choose a color" select-all="true" reset-all="true">
+    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+    <ui-select-choices repeat="color in availableColors | filter:$select.search">
+      {{color}}
+    </ui-select-choices>
+  </ui-select>
+  <p>Selected: {{multipleDemo.colors2}}</p>
+
+  <hr>
+  <h3>Array of strings (with selectAll and resetAll custom labels)</h3>
+  <ui-select multiple ng-init="multipleDemo.colors3 = multipleDemo.colors.slice(0)" ng-model="multipleDemo.colors3" theme="bootstrap" ng-disabled="disabled" close-on-select="false" style="width: 300px;" title="Choose a color" select-all="'Выбрать всё'" reset-all="'Очистить выбор'">
+    <ui-select-match placeholder="Select colors...">{{$item}}</ui-select-match>
+    <ui-select-choices repeat="color in availableColors | filter:$select.search">
+      {{color}}
+    </ui-select-choices>
+  </ui-select>
+  <p>Selected: {{multipleDemo.colors3}}</p>
+
   <div style="height:500px"></div>
 
 </body>

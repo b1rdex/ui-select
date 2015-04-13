@@ -68,6 +68,16 @@ uis.directive('uiSelect',
             $select.sortable = sortable !== undefined ? sortable : uiSelectConfig.sortable;
         });
 
+        attrs.$observe('selectAll', function() {
+          var selectAll = scope.$eval(attrs.selectAll);
+          $select.selectAll = selectAll !== undefined ? selectAll === true ? 'Select all' : selectAll : false;
+        });
+
+        attrs.$observe('resetAll', function() {
+          var resetAll = scope.$eval(attrs.resetAll);
+          $select.resetAll = resetAll !== undefined ? resetAll === true ? 'Reset all' : resetAll : false;
+        });
+
         attrs.$observe('disabled', function() {
           // No need to use $eval() (thanks to ng-disabled) since we already get a boolean instead of a string
           $select.disabled = attrs.disabled !== undefined ? attrs.disabled : false;

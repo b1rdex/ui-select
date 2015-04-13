@@ -29,4 +29,6 @@
        ng-class="{'select2-display-none': !$select.open}">
     <div class="ui-select-choices"></div>
   </div>
+  <a href="" ng-click="$selectMultiple.selectAll()" ng-if="$select.selectAll">{{$select.selectAll}}</a>
+  <a href="" ng-click="$selectMultiple.resetAll()" ng-if="$select.resetAll">{{$select.resetAll}}</a>
 </div>

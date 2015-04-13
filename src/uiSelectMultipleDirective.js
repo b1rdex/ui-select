@@ -60,6 +60,18 @@ uis.directive('uiSelectMultiple', ['uiSelectMinErr','$timeout', function(uiSelec
         return $select.placeholder;
       };
 
+      ctrl.selectAll = function() {
+        for (var i = $select.items.length - 1; i >= 0; i--) {
+          $select.select($select.items[i]);
+        }
+      };
+
+      ctrl.resetAll = function() {
+        for (var i = $select.selected.length - 1; i >= 0; i--) {
+          ctrl.removeChoice(i);
+        }
+      };
+
 
     }],
     controllerAs: '$selectMultiple',
